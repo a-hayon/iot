@@ -4,7 +4,7 @@ set -e
 apt-get update
 apt-get install -y curl
 
-# 644 pour autoriser user non root a lire le kubeconfig et pouvoir utiliser les commandes kubectl
+# 644 to authorize non-root user to read kubeconfig / use kubectl commands
 curl -sfL https://get.k3s.io | \
   K3S_KUBECONFIG_MODE="644" \
   K3S_TOKEN="Tsais42" \

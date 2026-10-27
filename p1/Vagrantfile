@@ -10,12 +10,11 @@ Vagrant.configure("2") do |config|
     vb.cpus = 2
   end
 
-  # le node server gere le cluster avec le control plane et l'api Kubernetes
+  # the server node manages the cluster with the control plane and teh kubernetes API
   config.vm.define "ahayonS" do |server| 
     server.vm.hostname = "ahayonS"
-    # virtualbox ajoute une interface reseau supplementaire a la vm
-    # les deux vms seront sur le meme reseau prive de base de virtualbox
-    # et pourront communiquer avec ces adresses
+    # virtualbox adds an additional network interface to the vm 
+    # both vms will be on the same virtualbox basic private network and will be able to communicate with these adresses
     server.vm.network "private_network", ip: "192.168.56.110" 
 
     server.vm.provision "shell", path: "scripts/server.sh"
