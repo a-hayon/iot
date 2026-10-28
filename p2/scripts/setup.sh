@@ -14,10 +14,10 @@ curl -sfL https://get.k3s.io | \
   INSTALL_K3S_EXEC="server --node-ip=192.168.56.110" \
   sh -
 
-echo "   Attente du statut Ready pour le noeud...  "
+echo "   Waiting for the node to be ready...  "
 
 until kubectl get nodes | grep -q " Ready"; do
-  echo "En attente de K3s..."
+  echo "Waiting for K3s..."
   sleep 2
 done
 
